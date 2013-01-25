@@ -1,4 +1,3 @@
-
 ## Mediator
 
-Goal: a simple mediator with very little functionality.
+Goal: a simple mediator with very little functionality. (Work in progress)
