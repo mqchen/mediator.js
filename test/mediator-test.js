@@ -13,14 +13,40 @@ buster.testCase("Mediator test", {
 	},
 
 	"listen" : {
-		"should be able to listen to event" : function() {
-			this.mediator.listen("event", function() {  });
+		"should get unique guid for every listener" : function() {
 
-			// One event should have been created
-			assert(this.mediator.listeners.hasOwnProperty("event"));
+			var testAmount = 100; // Number of listeners to add
 
-			// One listener on that event should be attached
-			assert.equals(this.mediator.listeners["event"].length, 1);
+			var guids = {};
+			var callback = sinon.spy();
+
+			for(var i = 0; i < testAmount; i++) {
+				var guid = this.mediator.listen("event", callback);
+				guids[guid] = null;
+			}
+
+			assert.equals(testAmount, Object.keys(guids).length);
+		}
+	},
+
+	"removeListener" : {
+		"should be able to remove listener with guid" : function() {
+			var callback = sinon.spy();
+			var anotherCallback = sinon.spy();
+
+			var guid = this.mediator.listen("event", callback);
+			this.mediator.listen("event", anotherCallback);
+
+			this.mediator.trigger("event");
+
+			assert.equals(callback.callCount, 1);
+
+			this.mediator.removeListener(guid);
+
+			this.mediator.trigger("event");
+
+			assert.equals(callback.callCount, 1); // Should not have been called again
+			assert.equals(anotherCallback.callCount, 2); // Another callback should be uneffected
 		}
 	},
 
