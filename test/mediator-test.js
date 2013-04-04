@@ -47,6 +47,20 @@ buster.testCase("Mediator test", {
 
 			assert.equals(callback.callCount, 1); // Should not have been called again
 			assert.equals(anotherCallback.callCount, 2); // Another callback should be uneffected
+		},
+
+		"should be able to handle non-existing guid" : function() {
+			var dummyGuid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+
+			var callback = sinon.spy();
+			
+			this.mediator.listen("event", callback);
+
+			this.mediator.removeListener(dummyGuid); // Should not remove anything
+
+			this.mediator.trigger("event");
+
+			assert.equals(callback.callCount, 1);
 		}
 	},
 

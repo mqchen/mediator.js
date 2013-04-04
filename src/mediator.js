@@ -31,8 +31,8 @@
 
 	Mediator.prototype._createGuid = function() {
 		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-			var r = Math.random() * 16 | 0,
-				v = c == 'x' ? r : r & 0x3 | 0x8;
+			var r = Math.random() * 16 | 0;
+			var v = c == 'x' ? r : r & 0x3 | 0x8;
 			return v.toString(16);
 		});
 	};
@@ -55,6 +55,7 @@
 		if(!this.listenersGuids.hasOwnProperty(guid)) {
 			return;
 		}
+		
 		delete this.listenersGuids[guid];
 
 		for(var event in this.listenersEvents) {
