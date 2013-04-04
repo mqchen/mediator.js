@@ -57,6 +57,20 @@ buster.testCase("Mediator test", {
 
 			// Should be called twice
 			assert.equals(callback.callCount, 2);
+		},
+
+		"should not trigger listeneres that listen to different events" : function() {
+
+			var anotherCallback = sinon.spy();
+			this.mediator.listen("another event", anotherCallback);
+
+			var callback = sinon.spy();
+			this.mediator.listen("event", callback);
+
+			this.mediator.trigger("event");
+
+			assert.equals(callback.callCount, 1);
+			assert.equals(anotherCallback.callCount, 0);
 		}
 	}
 });
