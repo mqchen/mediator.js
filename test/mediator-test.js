@@ -111,6 +111,16 @@ buster.testCase("Mediator test", {
 
 			assert.equals(callback.callCount, 1);
 			assert.equals(anotherCallback.callCount, 0);
+		},
+
+		"should trigger listener with given data" : function() {
+			var orgData = { "hello" : "world" }
+			var listener = function(data) {
+				assert.same(data, orgData);
+			}
+
+			this.mediator.listen("event", listener);
+			this.mediator.trigger("event", orgData);
 		}
 	}
 });
