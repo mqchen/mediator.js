@@ -37,6 +37,31 @@
 		});
 	};
 
+	Mediator.prototype._escapeRegExp = function(string) {
+		return string.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+	};
+
+	Mediator.prototype._eventToRegex = function(event) {
+		return new RegExp("^" + this._escapeRegExp(event).replace('\\*', ".*") + "$");
+	};
+
+	Mediator.prototype._eventEquals = function(event1, event2) {
+		if(event1 === event2) {
+			return true;
+		}
+
+		// Wildcard events?
+		if(event1.indexOf("*") >= 0 && event2.match(this._eventToRegex(event1))) {
+			return true;
+		}
+
+		if(event2.indexOf("*") >= 0 && event1.match(this._eventToRegex(event2))) {
+			return true;
+		}
+
+		return false;
+	};
+
 	Mediator.prototype.listen = function(event, callback) {
 
 		var guid = this._createGuid();
@@ -55,7 +80,7 @@
 		if(!this.listenersGuids.hasOwnProperty(guid)) {
 			return;
 		}
-		
+
 		delete this.listenersGuids[guid];
 
 		for(var event in this.listenersEvents) {
@@ -70,10 +95,12 @@
 	};
 
 	Mediator.prototype.trigger = function(event, data) {
-		if(this.listenersEvents.hasOwnProperty(event)) {
-			for(var i in this.listenersEvents[event]) {
-				var guid = this.listenersEvents[event][i];
-				this.listenersGuids[guid](data);
+		for(var e in this.listenersEvents) {
+			if(this.listenersEvents.hasOwnProperty(e) && this._eventEquals(e, event)) {
+				for(var i in this.listenersEvents[e]) {
+					var guid = this.listenersEvents[e][i];
+					this.listenersGuids[guid](data);
+				}
 			}
 		}
 	};

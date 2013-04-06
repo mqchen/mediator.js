@@ -61,6 +61,22 @@ buster.testCase("Mediator test", {
 			this.mediator.trigger("event");
 
 			assert.equals(callback.callCount, 1);
+		},
+
+		"should be able to listen to events with *" : function() {
+			var callback = sinon.spy();
+			var anotherCallback = sinon.spy();
+
+			this.mediator.listen("event:*", callback);
+			this.mediator.listen("*", callback);
+			this.mediator.listen("*:1", callback);
+			this.mediator.listen("event:2", anotherCallback);
+			this.mediator.listen("*:2", anotherCallback);
+
+			this.mediator.trigger("event:1");
+
+			assert.equals(callback.callCount, 3);
+			assert.equals(anotherCallback.callCount, 0);
 		}
 	},
 
@@ -121,6 +137,28 @@ buster.testCase("Mediator test", {
 
 			this.mediator.listen("event", listener);
 			this.mediator.trigger("event", orgData);
+		},
+
+		"should be able to trigger multiple listeners with *" : function() {
+			var callback = sinon.spy();
+
+			this.mediator.listen("event:1", callback);
+			this.mediator.listen("event:2", callback);
+
+			this.mediator.trigger("event:*");
+
+			assert.equals(callback.callCount, 2);
+		},
+
+		"should escape regex characters" : function() {
+			var callback = sinon.spy();
+
+			this.mediator.listen(".^$event:1", callback);
+			this.mediator.listen(".^$event:2", callback);
+
+			this.mediator.trigger(".^$event:*");
+
+			assert.equals(callback.callCount, 2);
 		}
 	}
 });
