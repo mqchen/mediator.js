@@ -159,6 +159,17 @@ buster.testCase("Mediator test", {
 			this.mediator.trigger(".^$event:*");
 
 			assert.equals(callback.callCount, 2);
+		},
+
+		"should trigger wildcard listener with wildcard event" : function() {
+			var callback = sinon.spy();
+
+			this.mediator.listen("event:*", callback);
+			this.mediator.listen("*:*", callback);
+
+			this.mediator.trigger("event:*");
+
+			assert.equals(callback.callCount, 2);
 		}
 	}
 });
