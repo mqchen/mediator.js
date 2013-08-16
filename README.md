@@ -22,3 +22,4 @@ For more usage examples, please see the test cases.
 - No external dependencies
 - AMD compatible
 - Supports wildcards in both listeners and triggers
+- Small file size (ca. 100 lines)
