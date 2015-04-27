@@ -2,6 +2,8 @@
 'use strict';
 
 var buster = require("buster");
+var assert = buster.referee.assert;
+var refute = buster.referee.refute;
 var sinon = require("sinon");
 var Mediator = require("../src/mediator");
 
