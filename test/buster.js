@@ -4,9 +4,17 @@ config["Mediator tests"] = {
 	environment: "node",
 	rootPath: "../",
 	sources: [
-		"src/**/*.js"
+		"*.js"
 	],
 	tests: [
 		"test/**/*-test.js"
-	]
+	],
+    'buster-istanbul': {
+		outputDirectory: "coverage",
+		format: "lcov",
+		excludes: ["**/*.json"]
+    },
+    extensions: [
+        require('buster-istanbul')
+    ]
 };

@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for mediator.js/index.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">mediator.js/index.js</span></h1>
+    <h2>
+        Statements: <span class="metric">88.68% <small>(47 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">90% <small>(27 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">91.67% <small>(11 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">88.68% <small>(47 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">mediator.js/</a> &#187; index.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">120</span>
+<span class="cline-any cline-yes">3720</span>
+<span class="cline-any cline-yes">3720</span>
+<span class="cline-any cline-yes">3720</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120</span>
+<span class="cline-any cline-yes">120</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Cross platform 
+'use strict';
+(function(name, definition) {
+	// AMD
+	<span class="missing-if-branch" title="if path not taken" >I</span>if(typeof define === 'function') {
+<span class="cstat-no" title="statement not covered" >		define(definition);</span>
+	}
+	// Node.js
+	else <span class="missing-if-branch" title="else path not taken" >E</span>if(typeof module !== 'undefined' &amp;&amp; module.exports) {
+		module.exports = definition();
+	}
+	// Browser
+	else {
+<span class="cstat-no" title="statement not covered" >		var theModule = definition(),</span>
+			global = this,
+			old = global[name];
+<span class="cstat-no" title="statement not covered" >		theModule.noConflict = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >			global[name] = old;</span>
+<span class="cstat-no" title="statement not covered" >			return theModule;</span>
+		};
+<span class="cstat-no" title="statement not covered" >		global[name] = theModule;</span>
+	}
+})('Mediator', function() {
+// MEDITAOR begins
+&nbsp;
+	// return the module's API
+	var Mediator = function() {
+		this.listenersGuids = {};
+		this.listenersEvents = {};
+	};
+&nbsp;
+	Mediator.prototype._createGuid = function() {
+		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			var r = Math.random() * 16 | 0;
+			var v = c == 'x' ? r : r &amp; 0x3 | 0x8;
+			return v.toString(16);
+		});
+	};
+&nbsp;
+	Mediator.prototype._escapeRegExp = function(string) {
+		return string.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&amp;");
+	};
+&nbsp;
+	Mediator.prototype._eventToRegex = function(event) {
+		return new RegExp("^" + this._escapeRegExp(event).replace('\\*', ".*") + "$");
+	};
+&nbsp;
+	Mediator.prototype._eventEquals = function(event1, event2) {
+		if(event1 === event2) {
+			return true;
+		}
+&nbsp;
+		// Wildcard events?
+		if(event1.indexOf("*") &gt;= 0 &amp;&amp; event2.match(this._eventToRegex(event1))) {
+			return true;
+		}
+&nbsp;
+		if(event2.indexOf("*") &gt;= 0 &amp;&amp; event1.match(this._eventToRegex(event2))) {
+			return true;
+		}
+&nbsp;
+		return false;
+	};
+&nbsp;
+	Mediator.prototype.listen = function(event, callback) {
+&nbsp;
+		var guid = this._createGuid();
+		this.listenersGuids[guid] = callback;
+&nbsp;
+		if(!this.listenersEvents.hasOwnProperty(event)) {
+			this.listenersEvents[event] = [];
+		}
+&nbsp;
+		this.listenersEvents[event].push(guid);
+&nbsp;
+		return guid;
+	};
+&nbsp;
+	Mediator.prototype.removeListener = function(guid) {
+		if(!this.listenersGuids.hasOwnProperty(guid)) {
+			return;
+		}
+&nbsp;
+		delete this.listenersGuids[guid];
+&nbsp;
+		for(var event in this.listenersEvents) {
+			<span class="missing-if-branch" title="else path not taken" >E</span>if(this.listenersEvents.hasOwnProperty(event)) {
+				for(var i = 0; i &lt; this.listenersEvents[event].length; i++) {
+					if(this.listenersEvents[event][i] === guid) {
+						delete this.listenersEvents[event][i];
+					}
+				}
+			}
+		}
+	};
+&nbsp;
+	Mediator.prototype.trigger = function(event, data) {
+		for(var e in this.listenersEvents) {
+			if(this.listenersEvents.hasOwnProperty(e) &amp;&amp; this._eventEquals(e, event)) {
+				for(var i in this.listenersEvents[e]) {
+					var guid = this.listenersEvents[e][i];
+					this.listenersGuids[guid](data);
+				}
+			}
+		}
+	};
+&nbsp;
+&nbsp;
+	return Mediator;
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 27 2015 19:32:05 GMT+0200 (CEST)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
